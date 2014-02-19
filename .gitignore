@@ -1,0 +1,6 @@
+.DS_Store
+.bundle/
+tmp/*
+platforms/iphone/build
+platforms/*/data
+.sass-cache

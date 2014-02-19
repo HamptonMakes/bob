@@ -1,0 +1,10 @@
+{
+  "version": "1.0",
+  "name": "???",
+  "description": "???",
+  "launch_path": "/data/index.html",
+  "icons": {
+    //"60": "/icon.png",
+    //"128": "/icon-128.png"
+  }
+}

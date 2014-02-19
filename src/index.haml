@@ -1,0 +1,15 @@
+!!! html5
+%html
+  %head
+    %title Bob
+    :javascript
+      #{bundle_javascripts "jquery-2.1.0", "main"}
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="main.css" />
+    :javascript
+      $(function() {
+        //Boot!
+        //Also, you can access vars here
+      });
+  %body{:class => @name}
+    %h1 I am Bob
