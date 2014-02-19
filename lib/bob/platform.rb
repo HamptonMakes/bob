@@ -38,6 +38,7 @@ class Bob::Platform
   end
 
   # Stuff used in the templates
+  # NONE OF THIS SHOULD BE HERE, ZOMG HAMPTON, WHAT ARE YOU DOING!?!?!
   def bundle_javascripts(*files)
     (files.map do |file|
       File.read(File.join("src/javascripts", file + ".js"))
