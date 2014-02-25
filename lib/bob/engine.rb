@@ -48,6 +48,7 @@ class Bob::Engine
 
       ["lib", "."].each do |folder|
         Dir[File.join("src/javascripts", folder, "/*.js")].each do |file|
+          puts "including #{file}"
           js = File.read(file)
           output << ERB.new(js).result(platform.binding) + "\n"
         end
