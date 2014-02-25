@@ -45,14 +45,13 @@ class Bob::Platform
     @config["assets"]
   end
 
-  # Stuff used in the templates
-  # NONE OF THIS SHOULD BE HERE, ZOMG HAMPTON, WHAT ARE YOU DOING!?!?!
-  def bundle_javascripts(*files)
-    (files.map do |file|
-      File.read(File.join("src/javascripts", file + ".js"))
-    end).join("\n")
+  # Make configuration easy to access in templates
+  def [](variable)
+    @config[variable]
   end
 
+  # Stuff used in the templates
+  # NONE OF THIS SHOULD BE HERE, ZOMG HAMPTON, WHAT ARE YOU DOING!?!?!
   def render(file = "index.haml")
     engine = Haml::Engine.new(File.read(File.join("src", file)))
     engine.render(self)
