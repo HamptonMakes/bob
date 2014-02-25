@@ -19,6 +19,7 @@ GEM
       guard (>= 1.1.0)
     haml (4.0.5)
       tilt
+    json (1.8.1)
     listen (2.5.0)
       celluloid (>= 0.15.2)
       celluloid-io (>= 0.15.0)
@@ -47,4 +48,5 @@ DEPENDENCIES
   guard
   guard-shell
   haml
+  json
   sass
