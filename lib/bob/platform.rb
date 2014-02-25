@@ -17,6 +17,10 @@ class Bob::Platform
     File.join("platforms", @config["platform_folder_name"])
   end
 
+  def binding
+    super
+  end
+
   def output_folder(subfolder = "")
     File.join(platform_folder, @config["build_folder"], subfolder)
   end
@@ -31,6 +35,10 @@ class Bob::Platform
 
   def output_html_file
     output_folder("index.html")
+  end
+
+  def output_js_file
+    output_folder("main.js")
   end
 
   def assets

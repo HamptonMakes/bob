@@ -2,7 +2,7 @@
 # More info at https://github.com/guard/guard#readme
 
 guard :shell do
-  watch(/.*\.(sass|haml|scss|js)$/) do
+  watch(/src\/.*\.(sass|haml|scss|js|json)$/) do
     `./build`
     puts "built"
   end

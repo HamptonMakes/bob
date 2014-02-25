@@ -10,7 +10,8 @@ class Bob::Engine
     make_directories
     compile_sass
     copy_assets
-    compile_platforms
+    compile_js
+    compile_html
   end
 
   def make_directories
@@ -40,11 +41,38 @@ class Bob::Engine
     end
   end
 
-  def compile_platforms
+  def compile_js
+    locales = load_locales
+    @config.platforms.each do |platform|
+      output = locales.dup
+
+      ["lib", "."].each do |folder|
+        Dir[File.join("src/javascripts", folder, "/*.js")].each do |file|
+          js = File.read(file)
+          output << ERB.new(js).result(platform.binding) + "\n"
+        end
+      end
+      f = File.open(platform.output_js_file, "w+")
+      f.write(output)
+      f.close
+    end
+  end
+
+  def compile_html
     @config.platforms.each do |platform|
       f = File.open(platform.output_html_file, "w+")
       f.write(platform.render)
       f.close
     end
+  end
+
+  def load_locales
+    locales = {}
+    Dir[File.join("src/locales/*.json")].each do |file|
+      lang = file.split("/")[-1][0..-6]
+      locales[lang] = {}
+      locales[lang]["translation"] = JSON.parse(File.read(file))
+    end
+    "var preloadedLocales = #{locales.to_json};\n\n"
   end
 end
