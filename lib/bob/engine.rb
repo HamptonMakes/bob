@@ -74,6 +74,6 @@ class Bob::Engine
       locales[lang] = {}
       locales[lang]["translation"] = JSON.parse(File.read(file))
     end
-    "var preloadedLocales = #{locales.to_json};\n\n"
+    "var preloadedLocales = #{JSON.pretty_generate(locales)};\n\n"
   end
 end
