@@ -45,7 +45,7 @@ kind of stinks now that I think of it.
 
 Easiest way to work is... 
 
-    open /platforms/chrome/index.html
+    open platforms/chrome/data/index.html
     guard start
 
 Guard will run "./build" whenever a file changes. Pretty cool, eh!
